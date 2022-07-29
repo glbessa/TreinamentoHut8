@@ -1,9 +1,6 @@
 function checkSignal(x)
 {
-	if (x < 0)
-		console.log(x + " é negativo");
-	else
-		console.log(x + " é positivo");
+	console.log(x < 0 ?  x + " é negativo" : x + " é positivo");
 }
 
 let x = 10;
