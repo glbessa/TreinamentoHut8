@@ -1,14 +1,3 @@
-function fatorial(n)
-{
-	for (n -= 1; n > 1; n--)
-	{
-		n *= (n + 1);
-	}
-
-	return n;
-}
-
-
 const v = 10;
 let triangulo = [
 	[1],
