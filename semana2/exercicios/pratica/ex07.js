@@ -1,6 +1,6 @@
 function fatorial(n)
 {
-	for (n -= 1; n >= 1; n--)
+	for (n -= 1; n > 1; n--)
 	{
 		n *= (n + 1);
 	}
@@ -10,15 +10,24 @@ function fatorial(n)
 
 
 const v = 10;
+let triangulo = [
+	[1],
+	[1,2,1]
+];
 
-for (let p = 0; p <= v; p++)
+for (let p = 2; p < v; p++)
 {
-	let linha = "";
-	for (let n = v; n >= 0; n--)
+	let linha = [1];
+	for (let n = 1; n < (triangulo[p-1].length); n++)
 	{
-		let coeficiente = fatorial(n) / (fatorial(p) * fatorial(n - p));
-		linha += `${coeficiente} `;
+		//let coeficiente = fatorial(n) / (fatorial(p) * fatorial(n - p));
+		linha.push(triangulo[p - 1][n - 1] + triangulo[p - 1][n]);
 	}
-	linha = linha.slice(0, linha.length - 1);
-	console.log(linha);
+	linha.push(1);
+	triangulo.push(linha);
+}
+
+for (let linha in triangulo)
+{
+	console.log(triangulo[linha].join(", "));
 }
